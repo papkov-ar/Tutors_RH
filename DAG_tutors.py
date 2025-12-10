@@ -71,9 +71,9 @@ def convert_column_type(column):
 
 # Функции для отправки уведомлений в Телегу
 async def send_tg_async(message):
-    token = '7448948426:AAFPGNyy7GcWMLM45fJK6R90a57lacBFoug'
-    chat_id = -1002319536090
-    thread_id = 6779
+    token = # телеграмм токен
+    chat_id = # Id группы с коллегами
+    thread_id = # id темы с в группе
     bot = Bot(token=token)
     await bot.send_message(chat_id=chat_id, text=message, message_thread_id = thread_id)
 def send_tg(message):
@@ -81,8 +81,8 @@ def send_tg(message):
 
     
 # Параметры для get 
-api_key   = 'CMfbGFrBa27aUssCtxcuCXKgJ1VBR8VLskwomhAWCbV2W429fCw8jcmH9fGv'
-url       = 'https://rosakhutor.checkoffice.ru/publicapi/v1/inspections'
+api_key   = Variable.get("TUTORS_TOKEN")
+url       = # URL приложения для проведения проверок
 headers   = {'API-Key': api_key,
              'accept': 'application/json',
              'charset': 'utf-8'
@@ -352,8 +352,8 @@ def uploading_data_tutors_to_ch(): # Функция дага
         new_data_1 = json.loads(new_data_1) #Десериализация
         new_data_1 = pd.json_normalize(new_data_1)
         # Подключаюсь к БД
-        host = 'rc1a-n1d97pav38f5v5da.mdb.yandexcloud.net'
-        port = 9440
+        host = clickhouse_connection['host']
+        port = clickhouse_connection['port']
         user = clickhouse_connection['user']
         password = clickhouse_connection['password']
         database = clickhouse_connection['database']
